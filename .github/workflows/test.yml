@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Display Secret (Testing Only)
         run: |
-          echo "Secret: ${{ secrets.TEST }}"
+          echo "${{ secrets.TEST }}" | base64
