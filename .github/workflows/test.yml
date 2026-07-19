@@ -1,9 +1,15 @@
 name: Exploit
+
 on:
   pull_request_target:
     types: [opened]
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - run: echo "Secret: ${{ secrets.TEST }}"
+      - name: Display Secret (Testing Only)
+        run: |
+          echo "Secret: ${{ secrets.TEST }}"
